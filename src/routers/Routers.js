@@ -8,7 +8,7 @@ import Signup from "../pages/Signup";
 import Login from "../pages/Login";
 const Routers = () => {
   return (
-    <Routes path="/" element={<Navigate to="/home" />}>
+    <Routes element={<Navigate to="/home" />}>
       <Route path="home" element={<Home />}></Route>
       <Route path="shop" element={<Shop />}></Route>
       <Route path="cart" element={<Cart />}></Route>
