@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import "./header.css";
 
 import { motion } from "framer-motion";
 
 import { NavLink } from "react-router-dom";
 
-import logo from "../../assets/images/eco-logo.png";
+import logo from "../../assets/images/cirk.png";
 import userIcon from "../../assets/images/user-icon.png";
 
 import { Container, Row } from "reactstrap";
+import { useSelector } from "react-redux";
+
 const nav__links = [
   {
     path: "/home",
@@ -25,8 +27,33 @@ const nav__links = [
 ];
 
 const Header = () => {
+  const headerRef = useRef(null);
+  const totalQuantity = useSelector((state) => state.cart.totalQuantity);
+
+  const menuRef = useRef(null);
+
+  const stickyHeaderFunc = () => {
+    window.addEventListener("scroll", () => {
+      if (
+        document.body.scrollTop > 80 ||
+        document.documentElement.scrollTop > 80
+      ) {
+        headerRef.current.classList.add("sticky__header");
+      } else {
+        headerRef.current.classList.remove("sticky__header");
+      }
+    });
+  };
+  useEffect(() => {
+    stickyHeaderFunc();
+    return () => window.removeEventListener("scroll", stickyHeaderFunc);
+  });
+  const menuToggle = () => {
+    menuRef.current.classList.toggle("active__menu");
+  };
+
   return (
-    <header className="header">
+    <header className="header" ref={headerRef}>
       <Container>
         <Row>
           <div className="nav__wrapper">
@@ -39,7 +66,7 @@ const Header = () => {
               </div>
             </div>
             {/* navigation */}
-            <div className="navigation">
+            <div className="navigation" ref={menuRef} onClick={menuToggle}>
               <ul className="menu">
                 {nav__links.map((item, index) => (
                   <li key={index} className="nav__item">
@@ -61,23 +88,20 @@ const Header = () => {
                 <i className="ri-heart-line" />
                 <span className="badge">1</span>
               </span>
-              <span className="cart__icon">
-                <i className="ri-shopping-cart-line" />
-                <span className="badge">1</span>
-              </span>
+
               <span className="cart__icon">
                 <i className="ri-shopping-bag-line" />
+                <span className="badge">{totalQuantity}</span>
               </span>
               <span>
                 <motion.img whileTap={{ scale: 1.2 }} src={userIcon} alt="" />
               </span>
-            </div>
-
-            {/* Mobile menu */}
-            <div className="mobile__menu">
-              <span>
-                <i className="ri-menu-line "></i>
-              </span>
+              {/* Mobile menu */}
+              <div className="mobile__menu">
+                <span onClick={menuToggle}>
+                  <i className="ri-menu-line "></i>
+                </span>
+              </div>
             </div>
           </div>
         </Row>

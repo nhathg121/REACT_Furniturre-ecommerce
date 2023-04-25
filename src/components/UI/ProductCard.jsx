@@ -3,25 +3,42 @@ import productImg from "../../assets/images/arm-chair-01.jpg";
 import { motion } from "framer-motion";
 import { Col } from "reactstrap";
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+
+import { useDispatch } from "react-redux";
+import { cartActions } from "../../redux/slices/cartSlice";
 
 import "../../styles/product-card.css";
 
-const ProductCard = () => {
+const ProductCard = ({ data }) => {
+  const { id, productName, category, price, imgUrl } = data;
+  const dispatch = useDispatch();
+  const addToCart = () => {
+    dispatch(
+      cartActions.addItem({
+        id: id,
+        productName: productName,
+        image: imgUrl,
+        price: price,
+      })
+    );
+    toast.success("Product added to cart");
+  };
   return (
-    <Col lg="3" md="4">
+    <Col lg="3" md="4" className="mb-2">
       <div className="product__ item">
         <motion.div className="product__img" whileHover={{ scale: 0.94 }}>
-          <img src={productImg} alt="productsImg" />
+          <img src={imgUrl} alt="productsImg" />
         </motion.div>
         <div className="p-2 product__info">
           <h3 className="product_name">
-            <Link to="/shop/:id">Modern Armchair</Link>
+            <Link to={`/shop/${id}`}>{productName}</Link>
           </h3>
-          <span>Chair</span>
+          <span>{category}</span>
         </div>
         <div className="product__card-bottom p-2  d-flex align-items-center justify-content-between">
-          <span className="price">$299</span>
-          <motion.span whileTap={{ scale: 1.14 }}>
+          <span className="price">${price}</span>
+          <motion.span whileTap={{ scale: 1.14 }} onClick={addToCart}>
             <i className="ri-add-line"></i>
           </motion.span>
         </div>
