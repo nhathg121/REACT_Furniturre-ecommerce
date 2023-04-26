@@ -3,13 +3,14 @@ import "./header.css";
 
 import { motion } from "framer-motion";
 
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 import logo from "../../assets/images/cirk.png";
 import userIcon from "../../assets/images/user-icon.png";
 
 import { Container, Row } from "reactstrap";
 import { useSelector } from "react-redux";
+import useAuth from "../../custom-hooks/useAuth";
 
 const nav__links = [
   {
@@ -31,16 +32,18 @@ const Header = () => {
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
 
   const menuRef = useRef(null);
-
+  const navigate = useNavigate();
+  const currentUser = useAuth();
+  console.log(currentUser);
   const stickyHeaderFunc = () => {
     window.addEventListener("scroll", () => {
       if (
         document.body.scrollTop > 80 ||
         document.documentElement.scrollTop > 80
       ) {
-        headerRef.current.classList.add("sticky__header");
+        headerRef?.current.classList.add("sticky__header");
       } else {
-        headerRef.current.classList.remove("sticky__header");
+        headerRef?.current.classList.remove("sticky__header");
       }
     });
   };
@@ -49,9 +52,11 @@ const Header = () => {
     return () => window.removeEventListener("scroll", stickyHeaderFunc);
   });
   const menuToggle = () => {
-    menuRef.current.classList.toggle("active__menu");
+    menuRef?.current.classList.toggle("active__menu");
   };
-
+  const navigateToCart = () => {
+    navigate("/cart");
+  };
   return (
     <header className="header" ref={headerRef}>
       <Container>
@@ -89,12 +94,16 @@ const Header = () => {
                 <span className="badge">1</span>
               </span>
 
-              <span className="cart__icon">
+              <span className="cart__icon" onClick={navigateToCart}>
                 <i className="ri-shopping-bag-line" />
                 <span className="badge">{totalQuantity}</span>
               </span>
               <span>
-                <motion.img whileTap={{ scale: 1.2 }} src={userIcon} alt="" />
+                <motion.img
+                  whileTap={{ scale: 1.2 }}
+                  src={currentUser ? currentUser.photoURL : userIcon}
+                  alt=""
+                />
               </span>
               {/* Mobile menu */}
               <div className="mobile__menu">

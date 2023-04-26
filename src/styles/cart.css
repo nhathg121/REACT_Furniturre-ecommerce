@@ -1,0 +1,17 @@
+.table tr td img {
+  width: 50px !important;
+  height: 50px !important;
+  object-fit: cointain;
+}
+
+.table td {
+  vertical-align: middle;
+}
+.table td i {
+  vertical-align: middle;
+  cursor: pointer;
+  padding: 10px 20px;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  border-radius: 5px;
+}

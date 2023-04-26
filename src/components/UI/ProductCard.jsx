@@ -18,7 +18,7 @@ const ProductCard = ({ data }) => {
       cartActions.addItem({
         id: id,
         productName: productName,
-        image: imgUrl,
+        imgUrl: imgUrl,
         price: price,
       })
     );
@@ -30,10 +30,11 @@ const ProductCard = ({ data }) => {
         <motion.div className="product__img" whileHover={{ scale: 0.94 }}>
           <img src={imgUrl} alt="productsImg" />
         </motion.div>
+
         <div className="p-2 product__info">
-          <h3 className="product_name">
-            <Link to={`/shop/${id}`}>{productName}</Link>
-          </h3>
+          <Link to={`/shop/${id}`}>
+            <h3 className="product_name">{productName}</h3>
+          </Link>
           <span>{category}</span>
         </div>
         <div className="product__card-bottom p-2  d-flex align-items-center justify-content-between">
