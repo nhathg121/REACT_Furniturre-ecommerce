@@ -17,6 +17,7 @@ const Login = () => {
     e.preventDefault();
     let userData;
     setLoading(true);
+
     try {
       const userCredential = await signInWithEmailAndPassword(
         auth,
@@ -28,11 +29,11 @@ const Login = () => {
       setLoading(false);
       toast.success("Login  successfully");
       navigate("/checkout");
-      console.log(user);
+      // console.log(user);
     } catch (error) {
       setLoading(false);
       toast.error("Login Error");
-      console.log(userData);
+      // console.log(userData);
     }
   };
   return (

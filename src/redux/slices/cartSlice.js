@@ -34,7 +34,6 @@ const cartSlice = createSlice({
         (total, item) => total + Number(item.price) * Number(item.quantity),
         0
       );
-      console.log(state.totalAmount);
     },
     deleteItem: (state, action) => {
       const id = action.payload;

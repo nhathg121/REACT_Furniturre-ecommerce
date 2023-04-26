@@ -20,7 +20,7 @@ const Routers = () => {
         path="checkout"
         element={
           <ProtectedRoute>
-            <Checkout />{" "}
+            <Checkout />
           </ProtectedRoute>
         }
       ></Route>
