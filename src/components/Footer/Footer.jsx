@@ -66,7 +66,7 @@ const Footer = () => {
                   <span>
                     <i className="ri-map-pin-line"></i>
                   </span>
-                  <p>1231 Thanh Xuan Ha Noi Viet Name</p>
+                  <p>1231 Thanh Xuan Ha Noi Viet Nam</p>
                 </ListGroupItem>
                 <ListGroupItem className="ps-0 border-0 d-flex align-items-center gap-2">
                   <span>
