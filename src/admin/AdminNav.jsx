@@ -1,8 +1,7 @@
 import React from "react";
 import { Container, Row } from "reactstrap";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import useAuth from "../custom-hooks/useAuth";
-import logo from "../assets/images/cirk.png";
 import "../styles/admin-nav.css";
 
 const admin__nav = [
@@ -28,38 +27,28 @@ const AdminNav = () => {
   return (
     <>
       <header className="admin__header">
-        <Container>
-          <div className="admin__nav-top">
-            <div className="admin__nav-wrapper-top">
-              <div className="logo">
-                <Link to="/home">
-                  <img src={logo} alt="" />
-                </Link>
-                <div>
-                  <Link to="/home">
-                    <h1>Cirkle K</h1>
-                  </Link>
-                  <p style={{ fontSize: "13px" }}>Since 1999</p>
-                </div>
-              </div>
-              <div className="search__box">
-                <input type="text" placeholder="Search....." />
-                <span>
-                  <i class="ri-notification-3-line"></i>
-                </span>
-              </div>
-              <div className="admin__nav-top-right">
-                <span>
-                  <i class="ri-notification-3-line"></i>
-                </span>
-                <span>
-                  <i class="ri-settings-2-line"></i>
-                </span>
-                <img src={currentUser && currentUser.photoURL} alt=""></img>
-              </div>
+        <div className="admin__nav-top">
+          <div className="admin__nav-wrapper-top">
+            <div className="logo">
+              <h2>Multimart</h2>
+            </div>
+            <div className="search__box">
+              <input type="text" placeholder="Search....." />
+              <span>
+                <i class="ri-notification-3-line"></i>
+              </span>
+            </div>
+            <div className="admin__nav-top-right">
+              <span>
+                <i class="ri-notification-3-line"></i>
+              </span>
+              <span>
+                <i class="ri-settings-2-line"></i>
+              </span>
+              <img src={currentUser && currentUser.photoURL} alt=""></img>
             </div>
           </div>
-        </Container>
+        </div>
       </header>
 
       <section className="admin__menu p-0">
