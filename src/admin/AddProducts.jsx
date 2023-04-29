@@ -7,7 +7,7 @@ import { db, storage } from "../firebase.config";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { collection, addDoc } from "firebase/firestore";
 import { async } from "@firebase/util";
-import data from "../assets/data/products.js";
+
 const AddProducts = () => {
   const [enterTitle, setEnterTitle] = useState("");
   const [enterShortDesc, setEnterShortDesc] = useState("");
@@ -17,10 +17,19 @@ const AddProducts = () => {
   const [enterProductImg, setEnterProductImg] = useState(null);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  console.log(data);
+
   const addProduct = async (e) => {
     e.preventDefault();
     setLoading(true);
+
+    // const product  = {
+    //   title:enterTitle,
+    //   shortDesc:enterShortDesc,
+    //   description:enterDescription,
+    //   price:enterPrice,
+    //   imgUrl:enterProductImg
+    // };
+
     //add product to the firebase database
     try {
       const docRef = await collection(db, "products");
