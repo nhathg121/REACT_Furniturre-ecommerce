@@ -79,7 +79,7 @@ const Header = () => {
               <div className="logo">
                 <img src={logo} alt="" />
                 <div>
-                  <h1>Cirkle K</h1>
+                  <h1>Circle K</h1>
                   <p style={{ fontSize: "13px" }}>Since 1999</p>
                 </div>
               </div>
