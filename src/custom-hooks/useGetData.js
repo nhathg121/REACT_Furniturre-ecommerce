@@ -17,7 +17,6 @@ const useGetData = (collectName) => {
     };
 
     getData();
-    console.log(data);
   }, []);
   return { data, loading };
 };

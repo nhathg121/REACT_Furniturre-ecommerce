@@ -17,7 +17,7 @@ const AddProducts = () => {
   const [enterProductImg, setEnterProductImg] = useState(null);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  console.log(data);
+  // console.log(data);
   const addProduct = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -55,12 +55,62 @@ const AddProducts = () => {
     }
     //console.log(product);
   };
+  const addAllProduct = async () => {
+    data.forEach(async (product) => {
+      //up to firebase storage
+      console.log(product.imgUrl);
+      // const {
+      //   id,
+      //   productName,
+      //   shortDesc,
+      //   description,
+      //   price,
+      //   category,
+      //   imgUrl,
+      // } = product;
+      // try {
+      //   const docRef = await collection(db, "products");
+      //   const storageRef = await ref(
+      //     storage,
+      //     `productImages/${Date.now() + price}`
+      //   );
+      //   const uploadTask = uploadBytesResumable(storageRef, imgUrl);
+      //   uploadTask.on(
+      //     () => {
+      //       console.log("Images not uploaded");
+      //     },
+      //     () => {
+      //       getDownloadURL(uploadTask.snapshot.ref).then(
+      //         async (downloadURL) => {
+      //           await addDoc(docRef, {
+      //             productName: productName,
+      //             shortDesc: shortDesc,
+      //             description: description,
+      //             price: price,
+      //             category: category,
+      //             imgUrl: downloadURL,
+      //           });
+      //         }
+      //       );
+
+      //       // navigate("/dashboard/all-products");
+      //     }
+      //   );
+      // } catch (error) {
+      //   console.log(error);
+      // }
+      //
+    });
+  };
   return (
     <section>
       <Container>
         <Row>
           <Col lg="12">
             <h4>Add Product</h4>
+            <button className="buy__btn" onClick={addAllProduct}>
+              Add All
+            </button>
             {loading ? (
               <h4 className="py-5">Loading...</h4>
             ) : (

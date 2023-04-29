@@ -5,9 +5,9 @@ import productImg03 from "../images/double-sofa-03.png";
 import productImg04 from "../images/single-sofa-01.jpg";
 import productImg05 from "../images/single-sofa-02.jpg";
 import productImg06 from "../images/single-sofa-03.jpg";
-import productImg007 from "../images/single-sofa-04.png";
+import productImg07 from "../images/single-sofa-04.png";
 
-import productImg07 from "../images/arm-chair-01.jpg";
+import productImg11 from "../images/arm-chair-01.jpg";
 import productImg08 from "../images/arm-chair-02.jpg";
 import productImg09 from "../images/arm-chair-03.jpg";
 import productImg10 from "../images/arm-chair-01.jpg";
@@ -209,7 +209,7 @@ const products = [
   {
     id: "27",
     productName: "Modern Arm Sofa",
-    imgUrl: productImg007,
+    imgUrl: productImg11,
     category: "sofa",
     price: 173,
     shortDesc:

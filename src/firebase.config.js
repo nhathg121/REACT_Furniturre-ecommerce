@@ -3,9 +3,8 @@ import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 import { getDatabase } from "firebase/database";
-
 const firebaseConfig = {
-  apiKey: "AIzaSyCsglCyTN8mTG8Jtk4MO5uLjgEJALmIEEI",
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: "circlek-ecommerce.firebaseapp.com",
   projectId: "circlek-ecommerce",
   storageBucket: "circlek-ecommerce.appspot.com",
