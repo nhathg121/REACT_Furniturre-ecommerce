@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Helmet from "../components/Helmet/Helmet";
 import { Container, Row, Col } from "reactstrap";
 import { Form, FormGroup } from "reactstrap";
@@ -15,7 +15,6 @@ const Login = () => {
   const navigate = useNavigate();
   const signIn = async (e) => {
     e.preventDefault();
-    let userData;
     setLoading(true);
 
     try {
@@ -25,15 +24,13 @@ const Login = () => {
         password
       );
       const user = userCredential.user;
-      userData = user;
+      console.log(user);
       setLoading(false);
       toast.success("Login  successfully");
       navigate("/checkout");
-      // console.log(user);
     } catch (error) {
       setLoading(false);
       toast.error("Login Error");
-      // console.log(userData);
     }
   };
   return (

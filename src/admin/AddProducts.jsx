@@ -1,12 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Container, Row, Col, Form, FormGroup } from "reactstrap";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-
 import { db, storage } from "../firebase.config";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { collection, addDoc } from "firebase/firestore";
-import { async } from "@firebase/util";
 
 const AddProducts = () => {
   const [enterTitle, setEnterTitle] = useState("");
@@ -53,17 +51,18 @@ const AddProducts = () => {
               imgUrl: downloadURL,
             });
           });
-          setLoading(false);
-          toast.success("Product successfullly added!");
-          navigate("/dashboard/all-products");
         }
       );
+      setLoading(false);
+      toast.success("Product successfullly added!");
+      navigate("/dashboard/all-products");
     } catch (error) {
       setLoading(false);
       toast.error("Product not added");
     }
     //console.log(product);
   };
+  const addAll = async (e) => {};
   return (
     <section>
       <Container>

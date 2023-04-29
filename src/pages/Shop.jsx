@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import CommonSection from "../components/UI/CommonSection";
 import Helmet from "../components/Helmet/Helmet";
@@ -107,7 +107,7 @@ const Shop = () => {
       <section>
         <Container>
           <Row>
-            {productsData.length == 0 ? (
+            {productsData.length === 0 ? (
               <h1 className="text-center fs-3">No products are found!</h1>
             ) : (
               <ProductLists data={productsData} />

@@ -3,7 +3,6 @@ import { Container, Row, Col } from "reactstrap";
 import useGetData from "../custom-hooks/useGetData";
 import { deleteDoc, doc } from "firebase/firestore";
 import { db } from "../firebase.config";
-import { toast } from "react-toastify";
 const Users = () => {
   const { data: usersData, loading } = useGetData("users");
 

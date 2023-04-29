@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { db } from "../firebase.config";
 import { collection, onSnapshot } from "firebase/firestore";
 
@@ -14,6 +14,7 @@ const useGetData = (collectName) => {
         setData(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
         setLoading(false);
       });
+      return () => {};
     };
 
     getData();

@@ -39,13 +39,13 @@ const ProductDetails = () => {
   const submitHandler = (e) => {
     e.preventDefault();
 
-    const reviewUserName = reviewUser.current.value;
-    const reviewUserMsg = reviewMsg.current.value;
-    const reviewObj = {
-      userName: reviewUserName,
-      text: reviewUserMsg,
-      rating,
-    };
+    // const reviewUserName = reviewUser.current.value;
+    // const reviewUserMsg = reviewMsg.current.value;
+    // const reviewObj = {
+    //   userName: reviewUserName,
+    //   text: reviewUserMsg,
+    //   rating,
+    // };
     toast.success("Review added successfully");
   };
   const addToCart = () => {

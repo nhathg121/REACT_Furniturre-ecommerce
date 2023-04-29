@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 import Helmet from "../components/Helmet/Helmet";
 import heroImg from "../assets/images/hero-img.png";
@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import "../styles/home.css";
 import Services from "../services/Services";
-import products from "../assets/data/products";
 import ProductsList from "../components/UI/ProductLists";
 
 import counterImg from "../assets/images/counter-timer-img.png";

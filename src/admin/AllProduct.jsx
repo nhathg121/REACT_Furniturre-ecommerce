@@ -1,6 +1,5 @@
 import React from "react";
-import { Container, Row, Col, Form, FormGroup } from "reactstrap";
-import { useNavigate } from "react-router-dom";
+import { Container, Row, Col } from "reactstrap";
 import { toast } from "react-toastify";
 import { db } from "../firebase.config";
 import { doc, deleteDoc } from "firebase/firestore";

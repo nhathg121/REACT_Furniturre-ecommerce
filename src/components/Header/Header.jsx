@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import "./header.css";
 import { motion } from "framer-motion";
-import logo from "../../assets/images/eco-logo.png";
+import logo from "../../assets/images/cirk.png";
 import userIcon from "../../assets/images/user-icon.png";
 import useAuth from "../../custom-hooks/useAuth";
 import { NavLink, useNavigate } from "react-router-dom";
@@ -79,14 +79,15 @@ const Header = () => {
       <Container>
         <Row>
           <div className="nav__wrapper">
-            <div className="logo">
-              <Link to="/home">
+            <Link to="/home">
+              <div className="logo">
                 <img src={logo} alt="logo"></img>
                 <div>
-                  <h1>Multimart</h1>
+                  <h1>Circle K</h1>
+                  <p className="fs-6">Since 1999</p>
                 </div>
-              </Link>
-            </div>
+              </div>
+            </Link>
 
             <div className="navigation" ref={menuRef} onClick={menuToggle}>
               <ul className="menu">
